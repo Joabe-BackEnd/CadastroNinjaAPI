@@ -1,6 +1,9 @@
-package br.com.jobs.CadastroNinja;
+package br.com.jobs.CadastroNinja.ninjas.controller;
 
+import br.com.jobs.CadastroNinja.missoes.MissoesModel;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 // transforma uma classe em entidade no DB
 @Entity
@@ -13,6 +16,11 @@ public class NinjaModel {
     private String nome;
     private String email;
     private int idade;
+
+    //muitos ninjas para uma missao
+    @ManyToOne
+    @JoinColumn(name = "missoes_id")
+    private MissoesModel missao;
 
     public NinjaModel(String nome, String email, int idade) {
         this.nome = nome;
