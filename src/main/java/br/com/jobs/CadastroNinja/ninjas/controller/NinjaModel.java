@@ -2,12 +2,18 @@ package br.com.jobs.CadastroNinja.ninjas.controller;
 
 import br.com.jobs.CadastroNinja.missoes.MissoesModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 // transforma uma classe em entidade no DB
 @Entity
 @Table(name = "tb_cadastro")
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class NinjaModel {
 
     @Id
@@ -28,30 +34,4 @@ public class NinjaModel {
         this.idade = idade;
     }
 
-    public NinjaModel() {
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
 }
