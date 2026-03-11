@@ -1,4 +1,4 @@
-package br.com.jobs.CadastroNinja.ninjas.controller;
+package br.com.jobs.CadastroNinja.ninjas;
 
 import br.com.jobs.CadastroNinja.missoes.MissoesModel;
 import jakarta.persistence.*;
@@ -18,20 +18,18 @@ public class NinjaModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
+
     private String nome;
+
+    @Column(unique = true)
     private String email;
+
     private int idade;
 
     //muitos ninjas para uma missao
     @ManyToOne
     @JoinColumn(name = "missoes_id")
     private MissoesModel missao;
-
-    public NinjaModel(String nome, String email, int idade) {
-        this.nome = nome;
-        this.email = email;
-        this.idade = idade;
-    }
 
 }

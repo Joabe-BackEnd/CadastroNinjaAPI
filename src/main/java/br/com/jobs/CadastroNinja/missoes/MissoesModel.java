@@ -1,6 +1,6 @@
 package br.com.jobs.CadastroNinja.missoes;
 
-import br.com.jobs.CadastroNinja.ninjas.controller.NinjaModel;
+import br.com.jobs.CadastroNinja.ninjas.NinjaModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,7 +17,7 @@ public class MissoesModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String nome;
     private String dificuldade;
 
