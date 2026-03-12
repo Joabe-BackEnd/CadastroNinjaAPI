@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 @Service
 public class NinjaService {
@@ -28,6 +29,20 @@ public class NinjaService {
     //criar ninja novo
     public NinjaModel criarNinja(NinjaModel ninja){
         return ninjaRepository.save(ninja);
+    }
+
+    //deletar ninja por id
+    public void deletarNinjaPorId(Long id){
+        ninjaRepository.deleteById(id);
+    }
+
+    //alterar ninja por id
+    public NinjaModel atualizarNinja(Long id, NinjaModel ninjaAtualizado){
+        if (ninjaRepository.existsById(id)){
+            ninjaAtualizado.setId(id);
+            return ninjaRepository.save(ninjaAtualizado);
+        }
+        return null;
     }
 
 }
